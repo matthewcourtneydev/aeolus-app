@@ -1,4 +1,5 @@
 import React from "react";
+import DailyCard from "./daily-card";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoUmbrella } from "react-icons/io5";
 import { ImDroplet } from "react-icons/im";
@@ -96,7 +97,7 @@ const Weather = (props) => {
                 <ImDroplet />
               </span>
               <p className="info-data-item">
-                {currentWeather.daily[0].humidity}%
+                {currentWeather.current.humidity}%
               </p>
               <p className="info-item-desc">Humidity</p>
             </div>
@@ -105,12 +106,21 @@ const Weather = (props) => {
                 <FiWind />
               </span>
               <p className="info-data-item">{`${convertSpeed(
-                currentWeather.daily[0].wind_speed
+                currentWeather.current.wind_speed
               )} ${cityWeather.sys.country === "US" ? "mph" : "km/h"}`}</p>
               <p className="info-item-desc">Wind Speed</p>
             </div>
           </div>
         </div>
+        <div className="chart"></div>
+      </div>
+
+      <div className="lower">
+        {currentWeather.daily.map((data, i) => {
+          if (i < 8) {
+            return <DailyCard country={cityWeather.sys.country} index={i} currentDay={currentDay} dailyData={data} />;
+          }
+        })}
       </div>
     </div>
   );
