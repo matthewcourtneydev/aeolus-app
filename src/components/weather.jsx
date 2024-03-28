@@ -41,6 +41,8 @@ const Weather = (props) => {
   const currentDay = date.getDay();
   const month = date.getMonth();
   const day = date.getDay();
+  const hour = date.getHours();
+  const min = date.getMinutes();
 
   function formatTemp(temp) {
     if (cityWeather.sys.country === "US") {
@@ -58,6 +60,14 @@ const Weather = (props) => {
     }
   }
 
+  function convertTime(hours) {
+    if (hours > 12) {
+      return hours - 12;
+    } else {
+      return hours;
+    }
+  }
+
   return (
     <div className="weather">
       <div className="upper">
@@ -68,7 +78,12 @@ const Weather = (props) => {
           {cityWeather.name}, {cityInfo[5].short_name}
         </p>
         <p className="date">
-          {days[currentDay]}, {day} {months[month]}
+          {days[currentDay]}, {day} {months[month]} {convertTime(hour)}:
+          {min.toLocaleString("en-US", {
+            minimumIntegerDigits: 2,
+            useGrouping: false,
+          })}{" "}
+          {hour > 12 ? "PM" : "AM"}
         </p>
         {/* <h2>Country: {cityWeather.sys.country}</h2>
             <h2>Temp: {formatTemp(currentWeather.current.temp)}&deg;</h2> */}
@@ -112,15 +127,47 @@ const Weather = (props) => {
             </div>
           </div>
         </div>
-        <div className="chart"></div>
+        <div className="chart">
+          <span>UV Index</span>
+          <figure className="css-chart">
+            <ul className="line-chart">
+              {currentWeather.hourly.map((hourlyData, i) => {
+                if (i < 10) {
+                  return (
+                    <li>
+                      <div
+                        className="data-point"
+                        data-value={hourlyData.uvi}
+                        style={{
+                          bottom: (hourlyData.uvi / 10) * 120 + "px",
+                          left: i * 10 + "%",
+                        }}
+                      ></div>
+                    </li>
+                  );
+                }
+              })}
+            </ul>
+          </figure>
+        </div>
       </div>
 
       <div className="lower">
-        {currentWeather.daily.map((data, i) => {
-          if (i < 8) {
-            return <DailyCard country={cityWeather.sys.country} index={i} currentDay={currentDay} dailyData={data} />;
-          }
-        })}
+        <span>7 Day Forecast</span>
+        <div className="list">
+          {currentWeather.daily.map((data, i) => {
+            if (i < 8) {
+              return (
+                <DailyCard
+                  country={cityWeather.sys.country}
+                  index={i}
+                  currentDay={currentDay}
+                  dailyData={data}
+                />
+              );
+            }
+          })}
+        </div>
       </div>
     </div>
   );

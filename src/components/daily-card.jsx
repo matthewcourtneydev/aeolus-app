@@ -15,12 +15,6 @@ const DailyCard = (props) => {
 
   let dayOfTheWeek;
 
-  console.log(
-    props.index,
-    props.currentDay,
-    days[props.currentDay + props.index]
-  );
-
   if (props.currentDay + props.index < 7) {
     dayOfTheWeek = days[props.currentDay + props.index];
   } else {

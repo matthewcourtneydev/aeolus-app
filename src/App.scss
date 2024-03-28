@@ -59,7 +59,7 @@
 }
 
 .weather {
-    background-color: rgb(140, 130, 212);
+  background-color: rgb(140, 130, 212);
 
   .upper {
     padding-top: 50px;
@@ -79,9 +79,9 @@
     }
 
     .date {
-        font-size: 14px;
-        padding-top: 5px;
-        color: rgb(184, 164, 203);
+      font-size: 14px;
+      padding-top: 5px;
+      color: rgb(184, 164, 203);
     }
 
     .weather-container {
@@ -164,9 +164,43 @@
     }
 
     .chart {
-        min-width: 100%;
-        min-height: 160px;
-        max-height: 160px;
+      min-width: 100%;
+      min-height: 140px;
+      max-height: 140px;
+      padding-left: 20px;
+      position: relative;
+
+      span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        color: rgb(184, 164, 203);
+      }
+
+      .css-chart {
+        --widget-size: 120px;
+        height: var(--widget-size);
+        margin: 1em;
+        padding: 0;
+        position: relative;
+        width: 90%;
+
+        .line-chart {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+
+          /* Each point on the chart, each a 12px circle with a light border */
+          .data-point {
+            background-color: white;
+            border: 2px solid lightblue;
+            border-radius: 50%;
+            height: 12px;
+            position: absolute;
+            width: 12px;
+          }
+        }
+      }
     }
   }
 
@@ -178,39 +212,59 @@
     padding-left: 20px;
     overflow-x: scroll;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     gap: 10px;
+    
+    span {
+        text-align: left;
+        padding-left: 15px;
+        color: rgb(115, 61, 153);
+    }
 
-    .card {
+    .list {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        height: 75%;
+
+      .card {
         background-color: rgb(221, 221, 252);
-        height: 80%;
+        height: 100%;
         margin: auto;
         min-width: 90px;
         border-radius: 30px;
-        padding-top: 20px;
+        padding-top: 15px;
+        position: relative;
 
         .title {
-            margin-bottom: 10px;
-            color: white;
+          color: white;
+          margin: auto;
+          min-width: 30px;
+        }
+
+        span {
+            padding-left: 0;
         }
 
         .icon {
-            font-size: 40px;
-            margin-top: 10px;
-            color: rgb(140, 130, 212);
+          font-size: 45px;
+          margin-top: 7px;
+          color: rgb(140, 130, 212);
         }
 
         .min {
-            color: rgb(184, 164, 203);
+          color: rgb(184, 164, 203);
         }
 
         .max {
-            color: white;
+          color: white;
         }
+      }
+
+      .current {
+        background-color: rgb(115, 61, 153);
+      }
     }
 
-    .current {
-        background-color: rgb(115, 61, 153);;
-    }
   }
 }
