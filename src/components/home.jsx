@@ -1,20 +1,26 @@
 import React from "react";
 import { useRef } from "react";
+import { TiWeatherPartlySunny } from "react-icons/ti";
+import partialCloud from "../imgs/partially-cloudy.webp";
 
 const Home = (props) => {
-  console.log(props);
-  const searchRef = useRef(null);
-
-  function onSubmit(input) {
-    debugger;
-    props.searchFunction(searchRef.current.value)
+  function onSubmit() {
+    props.getGeoLocation();
   }
   return (
     <div className="home">
-      <h1>Hello World</h1>
-      <label htmlFor="city-input"></label>
-      <input type="text" id="city-input" ref={searchRef}/>
-      <button className="submit" onClick={() => onSubmit()}>Search</button>
+      <img src={partialCloud} alt="cloud" />
+      <div className="shadow"></div>
+
+      <h1>
+        <strong>Weather</strong> Forecasts
+      </h1>
+      <div className="wrapper">
+        <button className="get-started" onClick={() => onSubmit()}>
+          Get Started
+        </button>
+        <a href="#">Or click here to choose a city</a>
+      </div>
     </div>
   );
 };
