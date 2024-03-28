@@ -51,15 +51,17 @@ function App() {
         `https://maps.googleapis.com/maps/api/geocode/json?latlng=${geoLocation.lat},${geoLocation.long}&key=${googleApiKey}`
       )
         .then((response) => response.json())
-        .then((data) => setCityFromLatAndLng(data.results[0].address_components[3].long_name))
+        .then((data) => setCityFromLatAndLng(data))
         .catch((error) => console.error(error));
     }
   }, [weatherData]);
 
   useEffect(() => {
     if (cityFromLatAndLng) {
+      debugger;
+      const city = cityFromLatAndLng.results[0].address_components[3].long_name;
       fetch (
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityFromLatAndLng}&appid=${weatherApiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}`
       )
       .then((response) => response.json())
       .then((data) => setCombinedWeatherData({"currentWeather": weatherData, "cityWeather": data}))
@@ -83,7 +85,7 @@ function App() {
         <Route
           path={"/weather"}
           element={
-            <Weather weatherData={combinedWeatherData} />
+            <Weather cityInfo={cityFromLatAndLng} weatherData={combinedWeatherData} />
           }
         />
       </Routes>
