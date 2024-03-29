@@ -5,6 +5,8 @@ const DailyCard = (props) => {
   const dailyData = props.dailyData;
   const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
+console.log(props.currentDateInView)
+
   function formatTemp(temp) {
     if (props.country === "US") {
       return Math.round(((temp - 273.15) * 9) / 5 + 32);
@@ -21,7 +23,7 @@ const DailyCard = (props) => {
     dayOfTheWeek = days[props.currentDay + props.index - 7];
   }
   return (
-    <div className={props.index === 0 ? "card current" : "card"}>
+    <div className={props.index === props.currentDateInView ? "card current" : "card"} onClick={() => props.setCurrentDateInView(props.index)}>
       <span className="title">{dayOfTheWeek}</span>
         <div className="icon"><WiDayThunderstorm /></div>
       <p className="max">{formatTemp(dailyData.temp.max)}&deg;</p>

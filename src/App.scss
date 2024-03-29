@@ -115,10 +115,13 @@
           color: rgb(115, 61, 153);
         }
         img {
-          height: 100px;
+          max-width: 120px;
+          height: auto;
+          max-height: 100px;
           width: auto;
           position: absolute;
           bottom: 0;
+          right: 20px;
         }
       }
     }
@@ -214,18 +217,19 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    
+
     span {
-        text-align: left;
-        padding-left: 15px;
-        color: rgb(115, 61, 153);
+      text-align: left;
+      padding-left: 15px;
+      color: rgb(115, 61, 153);
     }
 
     .list {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        height: 75%;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      height: 75%;
+      padding-right: 20px;
 
       .card {
         background-color: rgb(221, 221, 252);
@@ -243,7 +247,7 @@
         }
 
         span {
-            padding-left: 0;
+          padding-left: 0;
         }
 
         .icon {
@@ -265,6 +269,5 @@
         background-color: rgb(115, 61, 153);
       }
     }
-
   }
 }

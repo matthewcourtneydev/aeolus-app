@@ -9,12 +9,67 @@ function App() {
   const [combinedWeatherData, setCombinedWeatherData] = useState({});
   const [cityFromLatAndLng, setCityFromLatAndLng] = useState(null);
   const [geoLocation, setGeoLocation] = useState({});
+  const [isUsingCoords, setIsUsingCoords] = useState(true);
+  const [currentDateInView, setCurrentDateInView] = useState(0);
+  const [isNight, setIsNight] = useState(new Date().getHours() < 20);
   const navigate = useNavigate();
   const weatherApiKey = "2c7d687964a73c4c6ea30fce63c2f203";
-  const googleApiKey = "AIzaSyD_NxJqkh3eKyTBEGdK8CZE-GsVj8BTOq0"
+  const googleApiKey = "AIzaSyD_NxJqkh3eKyTBEGdK8CZE-GsVj8BTOq0";
 
+
+  const date = new Date();
+
+  const dateInfo = {
+    currentDay: date.getDay(),
+    month: formatMonth(date.getMonth()),
+    day: formatDay(date.getDay()),
+    hour: convertTime(date.getHours()),
+    min: date.getMinutes(),
+    hourMilitary: date.getHours()
+  }
+
+
+  function formatDay(dayCode) {
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    return days[dayCode]
+  }
+
+  function formatMonth(monthCode) {
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    return months[monthCode];
+  }
+
+  function convertTime(hours) {
+    if (hours > 12) {
+      return hours - 12;
+    } else {
+      return hours;
+    }
+  }
 
   function getUsersLocation() {
+    if (isUsingCoords) {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -32,6 +87,15 @@ function App() {
     } else {
       console.error("Geolocation is not supported by this browser.");
     }
+  } else {
+    let cityInput = "Charlotte"
+    fetch (
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${weatherApiKey}`
+    )
+    .then((response) => response.json())
+    .then((data) => setGeoLocation({lat: data.coord.lat, long: data.coord.lon}))
+    .catch((error) => console.error(error));
+  }
   }
 
   useEffect(() => {
@@ -58,7 +122,6 @@ function App() {
 
   useEffect(() => {
     if (cityFromLatAndLng) {
-      debugger;
       const city = cityFromLatAndLng.results[0].address_components[3].long_name;
       fetch (
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}`
@@ -74,7 +137,9 @@ function App() {
     if(Object.keys(combinedWeatherData).length > 0) {
       navigate("/weather")
     }
-  }, [combinedWeatherData])
+  }, [combinedWeatherData]);
+
+
   return (
     <div className="App">
       <Routes>
@@ -85,7 +150,7 @@ function App() {
         <Route
           path={"/weather"}
           element={
-            <Weather cityInfo={cityFromLatAndLng} weatherData={combinedWeatherData} />
+            <Weather currentDateInView={currentDateInView} setCurrentDateInView={setCurrentDateInView} isNightMode={isNight} dateInfo={dateInfo} cityInfo={cityFromLatAndLng} weatherData={combinedWeatherData} />
           }
         />
       </Routes>
