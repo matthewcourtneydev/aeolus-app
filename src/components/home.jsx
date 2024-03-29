@@ -1,6 +1,7 @@
 import React from "react";
 import { useRef } from "react";
 import { TiWeatherPartlySunny } from "react-icons/ti";
+import Search from "./search";
 import partialCloud from "../imgs/partially-cloudy.webp";
 
 const Home = (props) => {
@@ -15,12 +16,7 @@ const Home = (props) => {
       <h1>
         <strong>Weather</strong> Forecasts
       </h1>
-      <div className="wrapper">
-        <button className="get-started" onClick={() => onSubmit()}>
-          Get Started
-        </button>
-        <a href="#">Or click here to choose a city</a>
-      </div>
+      <Search onSubmit={onSubmit} setIsUsingCoords={props.setIsUsingCoords} isUsingCoords={props.isUsingCoords} />
     </div>
   );
 };

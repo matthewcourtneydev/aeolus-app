@@ -16,6 +16,11 @@ function App() {
   const weatherApiKey = "2c7d687964a73c4c6ea30fce63c2f203";
   const googleApiKey = "AIzaSyD_NxJqkh3eKyTBEGdK8CZE-GsVj8BTOq0";
 
+  function toggleIsUsingCoords() {
+    setIsUsingCoords((prev) => {
+      return !prev
+    })
+  }
 
   const date = new Date();
 
@@ -88,7 +93,8 @@ function App() {
       console.error("Geolocation is not supported by this browser.");
     }
   } else {
-    let cityInput = "Charlotte"
+    let cityInput = document.querySelector(".search-input").value;
+
     fetch (
       `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${weatherApiKey}`
     )
@@ -145,7 +151,7 @@ function App() {
       <Routes>
         <Route
           path={"/"}
-          element={<Home getGeoLocation={getUsersLocation} />}
+          element={<Home setIsUsingCoords={toggleIsUsingCoords} isUsingCoords={isUsingCoords} getGeoLocation={getUsersLocation} />}
         />
         <Route
           path={"/weather"}
