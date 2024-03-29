@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/aeolus-app/static/css/main.fea99123.css",
+    "main.js": "/aeolus-app/static/js/main.c5dfaf04.js",
+    "static/media/partially-cloudy.webp": "/aeolus-app/static/media/partially-cloudy.6daff330ca7e57180331.webp",
+    "index.html": "/aeolus-app/index.html",
+    "main.fea99123.css.map": "/aeolus-app/static/css/main.fea99123.css.map",
+    "main.c5dfaf04.js.map": "/aeolus-app/static/js/main.c5dfaf04.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fea99123.css",
+    "static/js/main.c5dfaf04.js"
+  ]
+}
