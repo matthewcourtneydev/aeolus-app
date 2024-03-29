@@ -14,11 +14,11 @@
 .home {
   background-color: rgb(140, 130, 212);
   overflow: hidden;
-  padding: 150px 30px 30px 30px;
+  padding: 80px 30px 30px 30px;
 
   img {
     width: 70%;
-    max-width: 500px;
+    max-width: 300px;
     height: auto;
     margin-bottom: 50px;
   }
@@ -29,6 +29,8 @@
     line-height: 60px;
     font-family: sans-serif;
     font-weight: 100;
+    max-width: 500px;
+    margin: auto;
 
     strong {
       font-weight: 700;
@@ -44,6 +46,7 @@
         font-size: 20px;
         max-width: 90%;
         margin: auto;
+
     }
 
     .get-started {
@@ -55,6 +58,7 @@
       border-radius: 25px;
       width: 70%;
       margin: 10px auto 10px;
+      max-width: 300px;
     }
 
     a {
@@ -72,6 +76,8 @@
     background-color: rgb(221, 221, 252);
     border-bottom-left-radius: 40px 40px;
     border-bottom-right-radius: 40px 40px;
+    max-width: 500px;
+    margin: auto;
 
     .location-name {
       font-size: 25px;
@@ -219,12 +225,17 @@
     position: absolute;
     bottom: 0;
     height: 190px;
-    width: 100%;
+    max-width: 750px;
     padding-left: 20px;
     overflow-x: scroll;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin: auto;
 
     span {
       text-align: left;

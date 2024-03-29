@@ -3,7 +3,7 @@ import DailyCard from "./daily-card";
 import Upper from "./upper";
 
 const Weather = (props) => {
-  console.log(props);
+
   const [currentWeather, setCurrentWeather] = useState(
     props.weatherData.currentWeather
   );
