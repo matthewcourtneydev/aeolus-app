@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/aeolus-app/static/css/main.75a943da.css",
+    "main.css": "/aeolus-app/static/css/main.f6c084a8.css",
     "main.js": "/aeolus-app/static/js/main.c5dfaf04.js",
     "static/media/partially-cloudy.webp": "/aeolus-app/static/media/partially-cloudy.6daff330ca7e57180331.webp",
     "index.html": "/aeolus-app/index.html",
-    "main.75a943da.css.map": "/aeolus-app/static/css/main.75a943da.css.map",
+    "main.f6c084a8.css.map": "/aeolus-app/static/css/main.f6c084a8.css.map",
     "main.c5dfaf04.js.map": "/aeolus-app/static/js/main.c5dfaf04.js.map"
   },
   "entrypoints": [
-    "static/css/main.75a943da.css",
+    "static/css/main.f6c084a8.css",
     "static/js/main.c5dfaf04.js"
   ]
 }
