@@ -14,17 +14,17 @@
 .home {
   background-color: rgb(140, 130, 212);
   overflow: hidden;
-  padding: 80px 30px 30px 30px;
+  padding: 3em 30px 30px 30px;
 
   img {
     width: 70%;
     max-width: 300px;
     height: auto;
-    margin-bottom: 50px;
+    margin-bottom: 1em;
   }
 
   h1 {
-    font-size: 60px;
+    font-size: 3em;
     margin: 0;
     line-height: 60px;
     font-family: sans-serif;
@@ -40,17 +40,16 @@
   .wrapper {
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 1em;
 
     .search-input {
         font-size: 20px;
         max-width: 90%;
         margin: auto;
-
     }
 
     .get-started {
-      font-size: 25px;
+      font-size: 1.2em;
       background-color: blue;
       color: white;
       border: none;
@@ -63,7 +62,7 @@
 
     a {
       text-decoration: none;
-      font-size: 15px;
+      font-size: 1em;
     }
   }
 }
@@ -72,15 +71,18 @@
   background-color: rgb(140, 130, 212);
 
   .upper {
-    padding-top: 50px;
+    padding-top: 2em;
     background-color: rgb(221, 221, 252);
     border-bottom-left-radius: 40px 40px;
     border-bottom-right-radius: 40px 40px;
     max-width: 500px;
     margin: auto;
+    max-height: 74vh;
+    min-height: 74vh;
+    position: relative;
 
     .location-name {
-      font-size: 25px;
+      font-size: 1.5em;
       font-family: sans-serif;
       font-weight: bold;
       color: rgb(115, 61, 153);
@@ -93,8 +95,8 @@
     }
 
     .date {
-      font-size: 14px;
-      padding-top: 5px;
+      font-size: 1rem;
+      padding-top: .2em;
       color: rgb(184, 164, 203);
     }
 
@@ -103,18 +105,17 @@
       max-width: 90%;
       margin: auto;
       margin-top: 15px;
-      max-height: 230px;
-      min-height: 230px;
+      height: fit-content;
 
       h1 {
-        font-size: 190px;
+        font-size: 10rem;
         vertical-align: top;
         position: relative;
         margin-left: -20px;
         color: rgb(115, 61, 153);
 
         span {
-          font-size: 120px;
+          font-size: .5em;
           position: absolute;
           top: 10px;
         }
@@ -123,8 +124,8 @@
       .desc-container {
         h2 {
           position: absolute;
-          left: 50px;
-          font-size: 30px;
+          left: 20%;
+          font-size: 1.5em;
           bottom: 0;
           color: rgb(115, 61, 153);
         }
@@ -141,20 +142,19 @@
     }
 
     .extra-info {
-      min-height: 100px;
       min-width: 90%;
       width: 80%;
       margin: auto;
       background-color: rgb(232, 232, 249);
       margin-top: 20px;
       border-radius: 50px;
-
+      padding-top: 1em;
+      padding-bottom: 1em;
       .inner {
         display: flex;
         justify-content: space-around;
         margin: auto;
         max-width: 80%;
-        padding-top: 5px;
         color: rgb(115, 61, 153);
 
         .info-el {
@@ -162,19 +162,18 @@
           min-height: 100%;
           height: 100%;
           margin: auto;
-          padding: 7px;
 
           span {
-            font-size: 20px;
+            font-size: .8em;
           }
 
           .info-data-item {
-            font-size: 22px;
+            font-size: 1em;
             font-weight: bold;
           }
 
           .info-item-desc {
-            font-size: 12px;
+            font-size: .8em;
           }
         }
       }
@@ -182,8 +181,6 @@
 
     .chart {
       min-width: 100%;
-      min-height: 140px;
-      max-height: 140px;
       padding-left: 20px;
       position: relative;
 
@@ -201,6 +198,8 @@
         padding: 0;
         position: relative;
         width: 90%;
+        max-height: 20%;
+        bottom: 2.3em;
 
         .line-chart {
           list-style: none;
@@ -224,7 +223,7 @@
   .lower {
     position: absolute;
     bottom: 0;
-    height: 190px;
+    height: 25vh;
     max-width: 750px;
     padding-left: 20px;
     overflow-x: scroll;
@@ -258,6 +257,7 @@
         border-radius: 30px;
         padding-top: 15px;
         position: relative;
+        font-size: .8em;
 
         .title {
           color: white;
@@ -270,7 +270,7 @@
         }
 
         .icon {
-          font-size: 45px;
+          font-size: 2em;
           margin-top: 7px;
           color: rgb(140, 130, 212);
         }
