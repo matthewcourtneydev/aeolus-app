@@ -5,288 +5,333 @@
   text-align: center;
   font-family: sans-serif;
 }
-.home,
-.weather {
-  min-height: 100vh;
-  min-width: 100vw;
-}
 
-.home {
-  background-color: rgb(140, 130, 212);
-  overflow: hidden;
-  padding: 3em 30px 30px 30px;
-
-  img {
-    width: 70%;
-    max-width: 300px;
-    height: auto;
-    margin-bottom: 1em;
+@media (min-width: 1px) and (orientation: portrait) {
+  .home,
+  .weather {
+    min-height: 100vh;
+    min-width: 100vw;
   }
 
-  h1 {
-    font-size: 3em;
-    margin: 0;
-    line-height: 60px;
-    font-family: sans-serif;
-    font-weight: 100;
-    max-width: 500px;
-    margin: auto;
+  .home {
+    background-color: rgb(140, 130, 212);
+    overflow: hidden;
+    padding: 3em 30px 30px 30px;
 
-    strong {
-      font-weight: 700;
+    img {
+      width: 70%;
+      max-width: 300px;
+      height: auto;
+      margin-bottom: 1em;
     }
-  }
 
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1em;
+    h1 {
+      font-size: 3em;
+      margin: 0;
+      line-height: 60px;
+      font-family: sans-serif;
+      font-weight: 100;
+      max-width: 500px;
+      margin: auto;
 
-    .search-input {
+      strong {
+        font-weight: 700;
+      }
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1em;
+
+      .search-input {
         font-size: 20px;
         max-width: 90%;
         margin: auto;
+      }
+
+      .get-started {
+        font-size: 1.2em;
+        background-color: blue;
+        color: white;
+        border: none;
+        padding: 10px 45px;
+        border-radius: 25px;
+        width: 70%;
+        margin: 10px auto 10px;
+        max-width: 300px;
+      }
+
+      a {
+        text-decoration: none;
+        font-size: 1em;
+      }
+    }
+  }
+
+  .weather {
+    background-color: rgb(140, 130, 212);
+
+    .upper {
+      padding-top: 2em;
+      background-color: rgb(221, 221, 252);
+      border-bottom-left-radius: 40px 40px;
+      border-bottom-right-radius: 40px 40px;
+      max-width: 500px;
+      margin: auto;
+      max-height: 74vh;
+      min-height: 74vh;
+      position: relative;
+
+      .location-name {
+        font-size: 1.5em;
+        font-family: sans-serif;
+        font-weight: bold;
+        color: rgb(115, 61, 153);
+        max-width: 80%;
+        margin: auto;
+
+        span {
+          font-size: 20px;
+        }
+      }
+
+      .date {
+        font-size: 1rem;
+        padding-top: 0.2em;
+        color: rgb(184, 164, 203);
+      }
+
+      .weather-container {
+        position: relative;
+        max-width: 90%;
+        margin: auto;
+        margin-top: 15px;
+        height: fit-content;
+
+        h1 {
+          font-size: 10rem;
+          vertical-align: top;
+          position: relative;
+          margin-left: -20px;
+          color: rgb(115, 61, 153);
+
+          span {
+            font-size: 0.5em;
+            position: absolute;
+            top: 10px;
+          }
+        }
+
+        .desc-container {
+          h2 {
+            position: absolute;
+            left: 20%;
+            font-size: 1.5em;
+            bottom: 0;
+            color: rgb(115, 61, 153);
+          }
+          img {
+            max-width: 120px;
+            height: auto;
+            max-height: 100px;
+            width: auto;
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+          }
+        }
+      }
+
+      .extra-info {
+        min-width: 90%;
+        width: 80%;
+        margin: auto;
+        background-color: rgb(232, 232, 249);
+        margin-top: 20px;
+        border-radius: 50px;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        .inner {
+          display: flex;
+          justify-content: space-around;
+          margin: auto;
+          max-width: 80%;
+          color: rgb(115, 61, 153);
+
+          .info-el {
+            min-width: 27%;
+            min-height: 100%;
+            height: 100%;
+            margin: auto;
+
+            span {
+              font-size: 0.8em;
+            }
+
+            .info-data-item {
+              font-size: 1em;
+              font-weight: bold;
+            }
+
+            .info-item-desc {
+              font-size: 0.8em;
+            }
+          }
+        }
+      }
+
+      .chart {
+        min-width: 100%;
+        padding-left: 20px;
+        position: relative;
+
+        span {
+          position: absolute;
+          left: 0;
+          width: 100%;
+          color: rgb(184, 164, 203);
+        }
+
+        .css-chart {
+          --widget-size: 120px;
+          height: var(--widget-size);
+          margin: 1em;
+          padding: 0;
+          position: relative;
+          width: 90%;
+          max-height: 20%;
+          bottom: 2.3em;
+
+          .line-chart {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            /* Each point on the chart, each a 12px circle with a light border */
+            .data-point {
+              background-color: white;
+              border: 2px solid lightblue;
+              border-radius: 50%;
+              height: 12px;
+              position: absolute;
+              width: 12px;
+            }
+          }
+        }
+      }
     }
 
-    .get-started {
-      font-size: 1.2em;
-      background-color: blue;
-      color: white;
-      border: none;
-      padding: 10px 45px;
-      border-radius: 25px;
-      width: 70%;
-      margin: 10px auto 10px;
-      max-width: 300px;
-    }
+    .lower {
+      position: absolute;
+      bottom: 0;
+      height: 25vh;
+      max-width: 750px;
+      padding-left: 20px;
+      overflow-x: scroll;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: auto;
 
-    a {
-      text-decoration: none;
-      font-size: 1em;
+      span {
+        text-align: left;
+        padding-left: 15px;
+        color: rgb(115, 61, 153);
+      }
+
+      .list {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        height: 75%;
+        padding-right: 20px;
+
+        .card {
+          background-color: rgb(221, 221, 252);
+          height: 100%;
+          margin: auto;
+          min-width: 90px;
+          border-radius: 30px;
+          padding-top: 15px;
+          position: relative;
+          font-size: 0.8em;
+
+          .title {
+            color: white;
+            margin: auto;
+            min-width: 30px;
+          }
+
+          span {
+            padding-left: 0;
+          }
+
+          .icon {
+            font-size: 2em;
+            margin-top: 7px;
+            color: rgb(140, 130, 212);
+          }
+
+          .min {
+            color: rgb(184, 164, 203);
+          }
+
+          .max {
+            color: white;
+          }
+        }
+
+        .current {
+          background-color: rgb(115, 61, 153);
+        }
+      }
     }
   }
 }
 
-.weather {
-  background-color: rgb(140, 130, 212);
-
-  .upper {
-    padding-top: 2em;
-    background-color: rgb(221, 221, 252);
-    border-bottom-left-radius: 40px 40px;
-    border-bottom-right-radius: 40px 40px;
-    max-width: 500px;
-    margin: auto;
-    max-height: 74vh;
-    min-height: 74vh;
-    position: relative;
-
-    .location-name {
-      font-size: 1.5em;
-      font-family: sans-serif;
-      font-weight: bold;
-      color: rgb(115, 61, 153);
-      max-width: 80%;
-      margin: auto;
-
-      span {
-        font-size: 20px;
-      }
+@media (min-height: 700px) and (orientation: portrait) {
+  .home {
+    img {
+      margin-top: 5em;
     }
-
-    .date {
-      font-size: 1rem;
-      padding-top: .2em;
-      color: rgb(184, 164, 203);
+    h1 {
+      font-size: 4em;
     }
+  }
 
-    .weather-container {
-      position: relative;
-      max-width: 90%;
-      margin: auto;
-      margin-top: 15px;
-      height: fit-content;
-
-      h1 {
-        font-size: 10rem;
-        vertical-align: top;
-        position: relative;
-        margin-left: -20px;
-        color: rgb(115, 61, 153);
-
-        span {
-          font-size: .5em;
-          position: absolute;
-          top: 10px;
+  .weather {
+    .upper {
+      .weather-container {
+        h1 {
+          font-size: 14em;
         }
       }
 
-      .desc-container {
-        h2 {
-          position: absolute;
-          left: 20%;
-          font-size: 1.5em;
-          bottom: 0;
-          color: rgb(115, 61, 153);
-        }
-        img {
-          max-width: 120px;
-          height: auto;
-          max-height: 100px;
-          width: auto;
-          position: absolute;
-          bottom: 0;
-          right: 20px;
-        }
-      }
-    }
-
-    .extra-info {
-      min-width: 90%;
-      width: 80%;
-      margin: auto;
-      background-color: rgb(232, 232, 249);
-      margin-top: 20px;
-      border-radius: 50px;
-      padding-top: 1em;
-      padding-bottom: 1em;
-      .inner {
-        display: flex;
-        justify-content: space-around;
-        margin: auto;
-        max-width: 80%;
-        color: rgb(115, 61, 153);
-
-        .info-el {
-          min-width: 27%;
-          min-height: 100%;
-          height: 100%;
-          margin: auto;
-
+      .extra-info {
+        .inner {
           span {
-            font-size: .8em;
+            font-size: 1.2em !important;
           }
 
           .info-data-item {
-            font-size: 1em;
-            font-weight: bold;
+            font-size: 1.4em !important;
           }
 
           .info-item-desc {
-            font-size: .8em;
-          }
-        }
-      }
-    }
-
-    .chart {
-      min-width: 100%;
-      padding-left: 20px;
-      position: relative;
-
-      span {
-        position: absolute;
-        left: 0;
-        width: 100%;
-        color: rgb(184, 164, 203);
-      }
-
-      .css-chart {
-        --widget-size: 120px;
-        height: var(--widget-size);
-        margin: 1em;
-        padding: 0;
-        position: relative;
-        width: 90%;
-        max-height: 20%;
-        bottom: 2.3em;
-
-        .line-chart {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-
-          /* Each point on the chart, each a 12px circle with a light border */
-          .data-point {
-            background-color: white;
-            border: 2px solid lightblue;
-            border-radius: 50%;
-            height: 12px;
-            position: absolute;
-            width: 12px;
+            padding-top: 0.2em;
+            font-size: 1.2em !important;
           }
         }
       }
     }
   }
 
-  .lower {
-    position: absolute;
-    bottom: 0;
-    height: 25vh;
-    max-width: 750px;
-    padding-left: 20px;
-    overflow-x: scroll;
-    left: 0; 
-    right: 0; 
-    margin-left: auto; 
-    margin-right: auto; 
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: auto;
-
-    span {
-      text-align: left;
-      padding-left: 15px;
-      color: rgb(115, 61, 153);
-    }
-
-    .list {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      height: 75%;
-      padding-right: 20px;
-
-      .card {
-        background-color: rgb(221, 221, 252);
-        height: 100%;
-        margin: auto;
-        min-width: 90px;
-        border-radius: 30px;
-        padding-top: 15px;
-        position: relative;
-        font-size: .8em;
-
-        .title {
-          color: white;
-          margin: auto;
-          min-width: 30px;
-        }
-
-        span {
-          padding-left: 0;
-        }
-
-        .icon {
-          font-size: 2em;
-          margin-top: 7px;
-          color: rgb(140, 130, 212);
-        }
-
-        .min {
-          color: rgb(184, 164, 203);
-        }
-
-        .max {
-          color: white;
-        }
-      }
-
-      .current {
-        background-color: rgb(115, 61, 153);
-      }
-    }
+  .card {
+    font-size: 1.2em !important;
   }
 }
